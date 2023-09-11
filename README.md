@@ -149,33 +149,33 @@ This PowerBI report tells an insighful story on google playystore apps performan
 #### REVENUE ANALYSIS
 ![](revenue.png) 
 
->Google play store apps generated a total revenue of $292 million between 2010-2018.
->Revenue generation was very low until December 2017 where there was an appreciable increase in revenue and peaked in July 2018.
->In terms of category of apps, apps in the Family category generated the most revenue followed by Lifestyle, Game, Finance and Photography.
->These are the top 5 revenue-generating apps: Minecraft, I am rich, I Am Rich Premium, Hitman Sniper and Grand Theft Auto: San Andreas
+- Google play store apps generated a total revenue of $292 million between 2010-2018.
+- Revenue generation was very low until December 2017 where there was an appreciable increase in revenue and peaked in July 2018.
+- In terms of category of apps, apps in the Family category generated the most revenue followed by Lifestyle, Game, Finance and Photography.
+- These are the top 5 revenue-generating apps: Minecraft, I am rich, I Am Rich Premium, Hitman Sniper and Grand Theft Auto: San Andreas
 
 #### INSTALLATION ANALYSIS
 ![](installation.png)
 
->A total of about 84 billion installations were made within the period
->Most installions were made in the month of July
->About 99% of installations were free apps in the Game, Communication, Family and Tools Category
->Installation of paid apps were mostly in the Family, Game, Personalization and Photography Category 
+- A total of about 84 billion installations were made within the period
+- Most installions were made in the month of July
+- About 99% of installations were free apps in the Game, Communication, Family and Tools Category
+- Installation of paid apps were mostly in the Family, Game, Personalization and Photography Category 
 
 #### REVIEWS ANALYSIS
 ![](reviews.png) 
 
->A total of about 2 billion reviews were counted
->These are the top 5 most reviewed apps: Clash of Clans, Facebook, WhatsApp Messenger, Instagram and Messenger Text and Video Chat for Free
->These are the top 5 most reviewed genres: Communication, Tools, Productivity, Photography and Social
+- A total of about 2 billion reviews were counted
+- These are the top 5 most reviewed apps: Clash of Clans, Facebook, WhatsApp Messenger, Instagram and Messenger Text and Video Chat for Free
+- These are the top 5 most reviewed genres: Communication, Tools, Productivity, Photography and Social
 
 #### SENTIMENTS ANALYSIS 
 ![](sentiment.png) 
 
->Sentiments of 865 Apps were collated
->Negative sentiments represnted 32.91%, Neutral 31.19% and Positive 35.9% of total count of sentiments
->Words used mostly include: game, awesome, best, Update, better, amazing, great etc
->Among the top 5 Apps by sentiment count, Facebook and Angry Birds Classic received more Negative sentiments than positives while Google Photos and Family Locator - GPS Tracker had more Positive sentiments than negatives
+- Sentiments of 865 Apps were collated
+- Negative sentiments represnted 32.91%, Neutral 31.19% and Positive 35.9% of total count of sentiments
+- Words used mostly include: game, awesome, best, Update, better, amazing, great etc
+- Among the top 5 Apps by sentiment count, Facebook and Angry Birds Classic received more Negative sentiments than positives while Google Photos and Family Locator - GPS Tracker had more Positive sentiments than negatives
 
 ### THANK YOU
 
