@@ -1,0 +1,99 @@
+CREATE DATABASE playstore; 
+USE playstore; 
+SHOW TABLES;
+DESCRIBE playstore_review ;
+DESCRIBE project_data; 
+SELECT * FROM project_data ; 
+SELECT * FROM playstore_review;
+SELECT `last updated`, STR_TO_DATE(`Last Updated`, '%d-%m-%Y')  from project_data;
+UPDATE PROJECT_DATA  
+SET LAST_UPDATED = STR_TO_DATE(`Last Updated`, '%d-%m-%Y'); 
+SELECT * FROM playstore_review;
+ALTER TABLE project_data 
+ADD COLUMN last_updated date ; 
+
+ALTER TABLE project_data
+DROP COLUMN `last updated`;
+ALTER TABLE PROJECT_DATA
+RENAME COLUMN `Current Ver` TO current_version ; 
+
+ALTER TABLE PROJECT_DATA
+RENAME COLUMN `Content Rating` TO content_rating ; 
+
+ALTER TABLE PROJECT_DATA
+RENAME COLUMN `Android ver` TO android_version ;
+
+SHOW VARIABLES LIKE "sql_safe_updates";
+SET SQL_SAFE_UPDATES = 0; 
+
+-- solutions to questions 
+-- Q1 APPS WITH HIGHEST RATING
+SELECT app, rating FROM project_data 
+WHERE rating = (SELECT  max(rating) FROM project_data); 
+
+SELECT DISTINCT count(app) FROM project_data 
+WHERE rating = (SELECT  max(rating) FROM project_data); 
+
+-- Q2 NUMBER OF INSTALLS AND REVIEWS FOR ABOVE APPS 
+SELECT app, rating, installs, reviews FROM project_data 
+WHERE rating = (SELECT max(rating) FROM project_data)
+ORDER BY reviews DESC; 
+
+-- Q3 APP WITH HIGHEST NUMBER OF REVIEWS AND CATEGORY 
+ SELECT app, category, reviews FROM project_data
+ WHERE reviews = (SELECT max(reviews) FROM project_data)
+ ORDER BY reviews DESC;
+ 
+ -- Q4 TOTAL REVENUE BY APPS
+ SELECT SUM(price*installs)  AS total_amount FROM Project_data; 
+ 
+ -- Q5 CATEGORY OF APP WITH HIGHEST INSTALLS AND TOTAL INSTALLS FOR THAT CATEGORY 
+SELECT category, SUM(installs) AS total_installs FROM Project_data
+GROUP BY category
+ORDER BY total_installs DESC
+LIMIT 1;
+
+-- Q6 WHICH GENRE HAS HIGHEST NUMBER OF APPS
+SELECT genres, count(distinct app) AS APPS FROM project_data
+GROUP BY genres 
+ORDER BY APPS DESC;
+
+-- Q7 LIST OF GAMES ORDERED BY HIGHEST INSTALLS 
+SELECT app, category, sum(installs) AS installation FROM project_data
+WHERE category = "game" 
+GROUP BY app, category
+ORDER BY installation desc;
+
+-- Q8 APPS THAT WORK ON ANDROID 4.03 AND UP
+SELECT app, android_version FROM project_data
+WHERE android_version = "4.0.3 and up";  
+
+-- Q9 TOTAL NUMBER OF FREE AND PAID APPS 
+SELECT type, count(distinct app) AS APPS FROM project_data
+GROUP BY type;  
+
+-- Q10 BEST DATING APP BASED ON REVIEWS 
+SELECT app, category, sum(reviews) FROM project_data
+WHERE category = "dating"
+GROUP BY app, category
+ORDER BY sum(reviews) DESC
+LIMIT 1;   
+
+-- Q11 POSITIVE AND NEGATIVE SENTIMENTS FROM TEN BEST FOOD APPS  
+SELECT app, sentiment, count(sentiment) AS feedbacks FROM playstore_review
+WHERE app = "10 best foods for you" AND sentiment in ("positive","negative")
+GROUP BY app, sentiment;
+
+-- Q12 ASUS SUPERNOTE COMMENT WITH SENTIMENT SUBJECT AND POLARITY AS 1 
+SELECT app, Translated_Review, Sentiment_Polarity, Sentiment_Subjectivity FROM playstore_review
+WHERE app = "ASUS SUPERNOTE"  AND Sentiment_Polarity = 1 AND Sentiment_Subjectivity = 1; 
+
+
+-- Q13 neutral sentiment reviews for the app Abs Training-Burn belly fat 
+SELECT app, translated_review, sentiment FROM playstore_review
+WHERE app = "Abs Training-Burn belly fat" AND sentiment = "neutral";
+
+
+-- Q14 negative sentiment reviews for Adobe Acrobat Reader with their sentiment polarity and sentiment subjectivity
+SELECT app, Translated_Review, Sentiment, Sentiment_Subjectivity, Sentiment_Polarity FROM playstore_review
+WHERE app = "Adobe Acrobat Reader"  AND Sentiment = "neutral";
